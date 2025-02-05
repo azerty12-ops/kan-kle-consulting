@@ -1,4 +1,4 @@
-import { ScaleIcon, DocumentTextIcon, UserGroupIcon, CalculatorIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import { ScaleIcon, DocumentTextIcon, UserGroupIcon, CalculatorIcon, CheckCircleIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -91,6 +91,29 @@ const services = [
     • Conseil comptable et financier : Nous analysons vos performances et vous conseillons pour optimiser votre gestion financière.
     
     • Formation : Nous proposons des formations sur mesure pour vous permettre de mieux comprendre et utiliser vos outils comptables.`
+  },
+  {
+    title: "ASSISTANCE À LA CRÉATION D'ENTREPRISE",
+    description: "Un accompagnement complet pour lancer votre entreprise dans les meilleures conditions",
+    icon: BuildingOfficeIcon,
+    features: [
+      "Conseil dans le choix du régime fiscal",
+      "Suivi comptable, fiscal et social",
+      "Rédaction de procédure comptable",
+      "Recherche de financement",
+      "Établissement de dossier technique et d'appel d'offres"
+    ],
+    detailedDescription: `Notre service d'assistance à la création d'entreprise vous offre un accompagnement sur mesure pour concrétiser votre projet :
+
+    • Conseil dans le choix du régime fiscal : Nous analysons votre situation pour vous recommander le régime fiscal le plus adapté à votre activité et vos objectifs.
+    
+    • Suivi comptable, fiscal et social : Nous assurons un suivi rigoureux de vos obligations pour vous permettre de démarrer sereinement votre activité.
+    
+    • Rédaction de procédure comptable : Nous mettons en place des procédures comptables claires et efficaces adaptées à votre structure.
+    
+    • Recherche de financement : Nous vous accompagnons dans l'identification et l'obtention des financements nécessaires à votre projet.
+    
+    • Établissement de dossier technique et d'appel d'offres : Nous vous aidons à préparer des dossiers professionnels pour répondre aux appels d'offres et obtenir des marchés.`
   }
 ]
 
