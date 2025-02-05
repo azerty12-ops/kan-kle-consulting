@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import Admin from './pages/Admin'
 import Login from './pages/Login'
+import AdminManagement from './pages/AdminManagement'
 import ProtectedRoute from './components/ProtectedRoute'
 
 export default function App() {
@@ -26,6 +27,14 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <Admin />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/management" 
+              element={
+                <ProtectedRoute>
+                  <AdminManagement />
                 </ProtectedRoute>
               } 
             />

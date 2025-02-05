@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Admin() {
   const [contacts, setContacts] = useState([]);
@@ -42,12 +42,20 @@ export default function Admin() {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-extrabold text-gray-900">Messages de contact</h2>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-          >
-            Déconnexion
-          </button>
+          <div className="flex space-x-4">
+            <Link
+              to="/admin/management"
+              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+            >
+              Gestion des administrateurs
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              Déconnexion
+            </button>
+          </div>
         </div>
 
         <div className="bg-white shadow overflow-hidden sm:rounded-md">
