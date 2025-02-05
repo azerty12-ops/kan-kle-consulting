@@ -120,7 +120,7 @@ const services = [
 const faqs = [
   {
     question: "Quels sont les délais pour créer une entreprise avec vos services ?",
-    answer: "En général, la création d'entreprise prend entre 5 à 10 jours ouvrables, selon la complexité du dossier et la forme juridique choisie. Nous nous engageons à traiter votre dossier dans les meilleurs délais tout en assurant sa conformité."
+    answer: "En général, la création d'entreprise prend entre 1 à 2 semaines, selon la complexité du dossier et la forme juridique choisie. Nous nous engageons à traiter votre dossier dans les meilleurs délais tout en assurant sa conformité."
   },
   {
     question: "Comment se déroule la première consultation ?",
