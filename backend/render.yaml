@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: kan-kle-api
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: JWT_SECRET
+        value: votre_secret_jwt
+    plan: free
