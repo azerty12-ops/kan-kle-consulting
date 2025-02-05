@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <circle cx="250" cy="250" r="240" fill="#6B7280"/>
+  <path d="M150 350 L200 200 L250 300 L300 150 L350 350" stroke="#1E40AF" stroke-width="20" fill="none"/>
+  <text x="250" y="420" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="48" fill="#1E40AF">KAN & KLE CONSULTING</text>
+</svg>
