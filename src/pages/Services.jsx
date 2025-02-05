@@ -1,6 +1,7 @@
-import { ScaleIcon, DocumentTextIcon, UserGroupIcon, CalculatorIcon } from '@heroicons/react/24/outline'
+import { ScaleIcon, DocumentTextIcon, UserGroupIcon, CalculatorIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const services = [
   {
@@ -93,86 +94,158 @@ const services = [
   }
 ]
 
+const faqs = [
+  {
+    question: "Quels sont les délais pour créer une entreprise avec vos services ?",
+    answer: "En général, la création d'entreprise prend entre 5 à 10 jours ouvrables, selon la complexité du dossier et la forme juridique choisie. Nous nous engageons à traiter votre dossier dans les meilleurs délais tout en assurant sa conformité."
+  },
+  {
+    question: "Comment se déroule la première consultation ?",
+    answer: "La première consultation est gratuite et dure environ 1 heure. Nous analysons ensemble vos besoins, répondons à vos questions et établissons un plan d'action personnalisé. Cette rencontre peut se faire en présentiel ou en visioconférence."
+  },
+  {
+    question: "Quels sont vos tarifs ?",
+    answer: "Nos tarifs varient selon vos besoins et la taille de votre entreprise. Nous établissons un devis personnalisé après notre première consultation. Nous proposons des forfaits adaptés à chaque situation et des facilités de paiement."
+  },
+  {
+    question: "Proposez-vous un accompagnement à distance ?",
+    answer: "Oui, nous proposons un accompagnement à distance complet. Grâce à nos outils numériques, nous pouvons gérer efficacement votre dossier où que vous soyez en Côte d'Ivoire."
+  }
+]
+
+const advantages = [
+  {
+    title: "Expertise Reconnue",
+    description: "Plus de 10 ans d'expérience dans le conseil aux entreprises en Côte d'Ivoire",
+    icon: CheckCircleIcon
+  },
+  {
+    title: "Accompagnement Personnalisé",
+    description: "Une équipe dédiée qui comprend vos besoins spécifiques",
+    icon: CheckCircleIcon
+  },
+  {
+    title: "Disponibilité",
+    description: "Un suivi régulier et des réponses rapides à vos questions",
+    icon: CheckCircleIcon
+  },
+  {
+    title: "Solutions Innovantes",
+    description: "Des outils modernes pour une gestion efficace de votre entreprise",
+    icon: CheckCircleIcon
+  }
+]
+
 export default function Services() {
-  const [isOpen, setIsOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
 
   function openModal(service) {
     setSelectedService(service)
     setIsOpen(true)
   }
 
-  function closeModal() {
-    setIsOpen(false)
-  }
-
   return (
-    <div className="py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50">
+      {/* Services Section */}
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Nos Services
           </h2>
           <p className="mt-4 text-xl text-gray-600">
-            Des solutions professionnelles complètes pour votre entreprise
+            Des solutions complètes pour la réussite de votre entreprise
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
+        <div className="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <div
               key={service.title}
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="p-8">
-                <div className="flex items-center justify-center">
-                  <service.icon className="h-12 w-12 text-primary-600" />
-                  <h3 className="ml-4 text-2xl font-semibold text-gray-900">
-                    {service.title}
-                  </h3>
+              <div className="p-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                  <service.icon className="h-6 w-6 text-primary-600" />
                 </div>
-                <p className="mt-6 text-gray-600 text-center">
-                  {service.description}
-                </p>
-                <div className="mt-8">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                    Nos prestations :
-                  </h4>
-                  <ul className="space-y-4">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-start">
-                        <svg 
-                          className="h-6 w-6 text-primary-500 mr-3 mt-0.5 flex-shrink-0" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M5 13l4 4L19 7" 
-                          />
-                        </svg>
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-8 text-center">
-                    <button
-                      onClick={() => openModal(service)}
-                      className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                    >
-                      En savoir plus
-                    </button>
-                  </div>
-                </div>
+                <h3 className="mt-4 text-lg font-medium text-gray-900">{service.title}</h3>
+                <p className="mt-2 text-gray-600">{service.description}</p>
+                <ul className="mt-4 space-y-2">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center text-gray-600">
+                      <CheckCircleIcon className="h-5 w-5 text-primary-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => openModal(service)}
+                  className="mt-6 w-full bg-primary-600 text-white py-2 px-4 rounded-md hover:bg-primary-700 transition-colors duration-300"
+                >
+                  En savoir plus
+                </button>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Pourquoi Nous Choisir Section */}
+        <div className="mt-24">
+          <h2 className="text-3xl font-extrabold text-gray-900 text-center">
+            Pourquoi Choisir KAN & KLE CONSULTING ?
+          </h2>
+          <div className="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {advantages.map((advantage) => (
+              <div key={advantage.title} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                <advantage.icon className="h-8 w-8 text-primary-600 mb-4" />
+                <h3 className="text-lg font-medium text-gray-900">{advantage.title}</h3>
+                <p className="mt-2 text-gray-600">{advantage.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-24">
+          <h2 className="text-3xl font-extrabold text-gray-900 text-center">
+            Questions Fréquentes
+          </h2>
+          <div className="mt-12 max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white shadow-md rounded-lg mb-4 overflow-hidden">
+                <div className="p-6">
+                  <h3 className="text-lg font-medium text-gray-900">{faq.question}</h3>
+                  <p className="mt-2 text-gray-600">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-24 bg-primary-600 rounded-2xl">
+          <div className="px-6 py-12 text-center">
+            <h2 className="text-3xl font-bold text-white">
+              Prêt à développer votre entreprise ?
+            </h2>
+            <p className="mt-4 text-xl text-primary-100">
+              Bénéficiez d'une consultation gratuite pour discuter de vos besoins
+            </p>
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 transition-colors duration-300"
+            >
+              Contactez-nous maintenant
+            </Link>
+          </div>
+        </div>
       </div>
 
+      {/* Modal */}
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
