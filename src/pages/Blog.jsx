@@ -8,7 +8,6 @@ const blogPosts = [
     date: "1 Janvier 2024",
     category: "Comptabilité",
     description: "À partir du 1er janvier 2024, toutes les entités à but non lucratif, y compris les organisations religieuses et ONG, doivent tenir une comptabilité conformément aux nouvelles directives de l'OHADA. Cette décision majeure vise à améliorer la transparence financière.",
-    imageUrl: "https://i.postimg.cc/qBvyJ8Vv/ohada.jpg",
     link: "https://www.ohada.com/actualite/7057/publication-ohada-les-pratiques-de-la-comptabilite-des-entites-du-secteur-a-but-non-lucratif-dans-les-pays-ohada-des-2024-associations-ordres-professionnels-et-projets-de-developpement.html"
   },
   {
@@ -17,7 +16,6 @@ const blogPosts = [
     date: "21 Janvier 2024",
     category: "Social",
     description: "La CNPS lance sa campagne annuelle de contrôle physique des retraités et rentiers. Cette opération vise à maintenir à jour la base de données des bénéficiaires et garantir la bonne distribution des prestations sociales.",
-    imageUrl: "https://i.postimg.cc/Hx1HJZdP/cnps.jpg",
     link: "https://www.cnps.ci/wp-content/uploads/2024/08/COMMUNIQUE-CONTROLE-PHYSIQUE-DES-RETRAITES-ET-RENTIERS-2024-COTE-DIVOIRE.pdf"
   },
   {
@@ -26,7 +24,6 @@ const blogPosts = [
     date: "4 Mars 2024",
     category: "Juridique",
     description: "15 des 17 États membres du Traité de l'OHADA se réunissent à Abidjan pour examiner les propositions de révision du traité. Ces modifications visent à améliorer l'environnement des affaires dans la région.",
-    imageUrl: "https://i.postimg.cc/qRHPj8dq/ohada-meeting.jpg",
     link: "https://www.ohada.com/actualite/7199/cote-divoire-droits-des-affaires-les-etats-membres-de-lohada-reflechissent-sur-des-propositions-de-revision-du-traite-a-abidjan.html"
   },
   {
@@ -35,7 +32,6 @@ const blogPosts = [
     date: "15 Janvier 2024",
     category: "Social",
     description: "La CNPS annonce la mise en place d'un nouveau plafond pour les cotisations sociales. Cette mesure impacte directement les employeurs et les salariés, avec des modifications importantes dans le calcul des cotisations.",
-    imageUrl: "https://i.postimg.cc/SKhQXmZY/cnps-building.jpg",
     link: "https://www.cnps.ci/wp-content/uploads/2023/01/NOUVEAU-PLAFOND-DES-COTISATIONS-SOCIALES-DE-LA-CNPS.pdf"
   },
 ];
@@ -56,7 +52,6 @@ export default function Blog() {
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implémenter l'inscription à la newsletter
     alert("Merci de vous être inscrit à notre newsletter !");
     setEmail("");
   };
@@ -124,20 +119,14 @@ export default function Blog() {
           <h2 className="text-2xl font-semibold text-gray-900 mb-8">Articles Populaires</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {popularPosts.map((post) => (
-              <div key={post.id} className="relative group">
-                <div className="relative h-48 w-full overflow-hidden rounded-lg">
-                  <img
-                    src={post.imageUrl}
-                    alt={post.title}
-                    className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-primary-600">
+              <div key={post.id} className="relative group bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600">
                   <a href={post.link} target="_blank" rel="noopener noreferrer">
                     {post.title}
                   </a>
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">{post.date}</p>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">{post.description}</p>
               </div>
             ))}
           </div>
@@ -161,52 +150,42 @@ export default function Blog() {
         </div>
 
         {/* Liste des articles */}
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           {filteredPosts.map((post) => (
-            <article key={post.id} className="flex flex-col items-start">
-              <div className="relative w-full">
-                <img
-                  src={post.imageUrl}
-                  alt={post.title}
-                  className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+            <article key={post.id} className="flex flex-col bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="flex items-center gap-x-4 text-xs">
+                <time dateTime={post.date} className="text-gray-500">
+                  {post.date}
+                </time>
+                <span className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                  {post.category}
+                </span>
               </div>
-              <div className="max-w-xl">
-                <div className="mt-8 flex items-center gap-x-4 text-xs">
-                  <time dateTime={post.date} className="text-gray-500">
-                    {post.date}
-                  </time>
-                  <span className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
-                    {post.category}
-                  </span>
-                </div>
-                <div className="group relative">
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-primary-600">
-                    <a href={post.link} target="_blank" rel="noopener noreferrer">
-                      {post.title}
-                    </a>
-                  </h3>
-                  <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                    {post.description}
-                  </p>
-                </div>
-                <div className="mt-8 flex items-center gap-x-4">
-                  <a
-                    href={post.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
-                  >
-                    Lire l'article
+              <div className="group relative mt-3">
+                <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-primary-600">
+                  <a href={post.link} target="_blank" rel="noopener noreferrer">
+                    {post.title}
                   </a>
-                  <button
-                    onClick={() => handleShare(post)}
-                    className="rounded-full bg-gray-100 p-2.5 text-gray-600 hover:bg-gray-200"
-                  >
-                    <ShareIcon className="h-5 w-5" />
-                  </button>
-                </div>
+                </h3>
+                <p className="mt-5 text-sm leading-6 text-gray-600">
+                  {post.description}
+                </p>
+              </div>
+              <div className="mt-6 flex items-center gap-x-4">
+                <a
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                >
+                  Lire l'article
+                </a>
+                <button
+                  onClick={() => handleShare(post)}
+                  className="rounded-full bg-gray-100 p-2.5 text-gray-600 hover:bg-gray-200"
+                >
+                  <ShareIcon className="h-5 w-5" />
+                </button>
               </div>
             </article>
           ))}
