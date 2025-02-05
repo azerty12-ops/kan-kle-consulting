@@ -1,22 +1,40 @@
 import { useState } from 'react'
-import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
+import { EnvelopeIcon, PhoneIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline'
 
 const contactInfo = [
   {
     name: 'Téléphone',
-    description: ['+225 07 79 33 82 31', '+225 05 44 48 77 78'],
+    description: [
+      'Bureau: +225 07 79 33 82 31',
+      'Mobile: +225 05 44 48 77 78'
+    ],
     icon: PhoneIcon,
   },
   {
     name: 'Email',
-    description: ['kankleconsulting225@gmail.com'],
+    description: [
+      'Contact: kankleconsulting225@gmail.com',
+      'Service client: support@kankleconsulting.ci'
+    ],
     icon: EnvelopeIcon,
   },
   {
     name: 'Adresse',
-    description: ['Abidjan Cocody Rivera', 'Abatta Cité Symphonia'],
+    description: [
+      'Siège social : Abidjan Cocody Rivera',
+      'Bureau annexe : Abatta Cité Symphonia'
+    ],
     icon: MapPinIcon,
   },
+  {
+    name: 'Horaires d\'ouverture',
+    description: [
+      'Lundi - Vendredi : 8h00 - 18h00',
+      'Samedi : 9h00 - 13h00',
+      'Dimanche : Fermé'
+    ],
+    icon: ClockIcon,
+  }
 ]
 
 export default function Contact() {
