@@ -39,19 +39,31 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative h-screen">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
             backgroundImage: `url('https://i.postimg.cc/VkZfMVk9/group-business-people-analysis-with-marketing-report-graph-young-specialists-are-discussing-business.jpg')`
           }}
         >
-          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0 bg-black opacity-60"></div>
         </div>
         <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center">
+          <div className="text-center max-w-4xl px-4">
             <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
               <span className="block">KAN & KLE CONSULTING</span>
-              <span className="block text-primary-400">Construisons l'avenir ensemble</span>
+              <span className="block text-primary-400 mt-2">Construisons l'avenir ensemble</span>
             </h1>
+            <p className="mt-6 text-xl text-gray-300 max-w-3xl mx-auto">
+              Votre partenaire de confiance pour l'expertise comptable, juridique et fiscale en Côte d'Ivoire
+            </p>
+            <div className="mt-8 flex justify-center space-x-4">
+              <Link to="/contact" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-300">
+                Contactez-nous
+                <ArrowRightIcon className="ml-2 -mr-1 h-5 w-5" />
+              </Link>
+              <Link to="/services" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-gray-50 transition-colors duration-300">
+                Nos services
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -127,6 +139,29 @@ export default function Home() {
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700"
               >
                 Contactez-nous
+                <ArrowRightIcon className="ml-2 -mr-1 h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action Section */}
+      <div className="bg-primary-600 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+              Prêt à développer votre entreprise ?
+            </h2>
+            <p className="mt-4 text-xl text-primary-100">
+              Bénéficiez d'une consultation gratuite pour discuter de vos besoins
+            </p>
+            <div className="mt-8">
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 transition-colors duration-300"
+              >
+                Réserver ma consultation
                 <ArrowRightIcon className="ml-2 -mr-1 h-5 w-5" />
               </Link>
             </div>
